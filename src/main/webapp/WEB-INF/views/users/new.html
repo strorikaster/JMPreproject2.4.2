@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New user</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/users}" th:object="${user}">
+    <div>
+        <label>Create new user:</label>
+        <br>
+        <label for="name">Enter user name:</label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+        <br>
+        <label for="surname">Enter user surname:</label>
+        <input type="text" th:field="*{surName}" id="surname"/>
+        <div style="color:red" th:if="${#fields.hasErrors('surName')}" th:errors="*{surName}">Surname error</div>
+        <br>
+        <label for="email">Enter user email:</label>
+        <input type="text" th:field="*{email}" id="email"/>
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+        <br>
+        <label for="age">Enter user age:</label>
+        <input type="text" th:field="*{age}" id="age"/>
+        <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+        <br>
+        <input type="submit" value="Create user">
+    </div>
+</form>
+
+</body>
+</html>
